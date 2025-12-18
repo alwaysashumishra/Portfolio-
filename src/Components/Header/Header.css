@@ -1,0 +1,81 @@
+/* =====================
+   HERO BASE
+===================== */
+
+.main-header-box {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* Center content */
+.center-header {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0px 24px;
+  padding-bottom: 100px;
+  z-index: 2;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+
+@media (max-width: 768px) {
+  .main-header-box {
+    height: 90vh;
+  }
+
+  .center-header h1 {
+    font-size: 2.4rem;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .center-header h1 {
+    font-size: 2rem;
+  }
+}
+
+/* =====================
+   PREMIUM AMBIENT LIGHT
+===================== */
+
+/* Left ambient glow */
+.main-header-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at left,
+    rgba(99, 102, 241, 0.18),
+    transparent 65%
+  );
+  z-index: 1;
+}
+
+/* Right ambient glow */
+.main-header-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at right,
+    rgba(168, 85, 247, 0.15),
+    transparent 65%
+  );
+  z-index: 1;
+}

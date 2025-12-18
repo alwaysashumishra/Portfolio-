@@ -1,0 +1,144 @@
+.timeline-section {
+  background: #050508;
+  padding: 80px 10%;
+  color: #e5e7eb;
+}
+
+.timeline-heading {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  margin-bottom: 80px;
+}
+.accent-line {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 14px;
+  background: #6366f1; /* change as per theme */
+  border-radius: 999px;
+}
+
+/* Timeline container */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding-left: 40px;
+}
+
+/* Vertical line (graph) */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    #6366f1,
+    rgba(99, 102, 241, 0.2)
+  );
+}
+
+/* Item */
+.timeline-item {
+  position: relative;
+}
+
+/* Dot */
+.timeline-dot {
+  position: absolute;
+  left: -2px;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  background: #6366f1;
+  border-radius: 50%;
+}
+
+.timeline-dot.highlight {
+  background: #22c55e;
+}
+
+/* Card */
+.timeline-card {
+  display: flex;
+  gap: 22px;
+  background: #0b0b10;
+  border-radius: 20px;
+  padding: 26px;
+  margin-left: 40px;
+}
+
+/* Logo */
+.timeline-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  background: #050508;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+/* Content */
+.timeline-content h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.company {
+  font-size: 0.95rem;
+  color: #c7d2fe;
+}
+
+.duration {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.desc {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+/* Buttons */
+.timeline-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.timeline-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #2b2f6b;
+  color: #aab0ff;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.timeline-btn:hover {
+  background: #2b2f6b;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline-card {
+    margin-left: 30px;
+    flex-direction: column;
+  }
+}

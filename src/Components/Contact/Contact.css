@@ -1,0 +1,102 @@
+.contact-section {
+  background: #050508;
+  padding: 140px 10%;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.contact-header {
+  max-width: 540px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.contact-header h2 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 2.9rem;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  margin-bottom: 14px;
+}
+
+.contact-header p {
+  font-size: 1rem;
+  color: #9ca3af;
+  line-height: 1.7;
+}
+
+/* Form */
+.contact-form {
+  width: 100%;
+  max-width: 520px;
+  background: #0b0b10;
+  border-radius: 26px;
+  padding: 42px;
+}
+
+/* Inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 26px;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.input-group input,
+.input-group textarea {
+  background: transparent;
+  border: 1px solid #1f2933;
+  border-radius: 14px;
+  padding: 14px 16px;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #6366f1;
+}
+
+/* Button */
+.contact-form button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #6366f1, #4f46e5);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* Status */
+.success-msg {
+  margin-top: 16px;
+  color: #22c55e;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.error-msg {
+  margin-top: 16px;
+  color: #ef4444;
+  font-size: 0.9rem;
+  text-align: center;
+}
