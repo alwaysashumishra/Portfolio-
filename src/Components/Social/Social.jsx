@@ -7,17 +7,17 @@ const socials = [
   {
     name: "LeetCode",
     link: "https://leetcode.com/u/Ashutosh12mishra/",
-    img: assets.leetcode,
+    img: "https://miro.medium.com/0*xJCLQQRZv3XFMUd1",
   },
   {
     name: "GitHub",
     link: "https://github.com/alwaysashumishra",
-    img: assets.github,
+    img: "https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU",
   },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/ashutosh-mishra-am-108880282/",
-    img: assets.linkedin,
+    img: "https://blog.boon.so/wp-content/uploads/2024/03/LinkedIn-Logo-2-1024x768.jpg",
   },
 ];
 
