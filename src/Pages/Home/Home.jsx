@@ -8,6 +8,8 @@ import Experience from "../../Components/Experience/Experience";
 import Contact from "../../Components/Contact/Contact";
 import Footer from "../../Components/Footer/Footer";
 import "./Home.css";
+import NotesCourse from "../../Components/NotesCourse/NotesCourse";
+
 
 const Home = () => {
   return (
@@ -29,6 +31,10 @@ const Home = () => {
       <section id="experience">
         <Experience />
       </section>
+      <section id="courses">
+       <NotesCourse/>
+      </section>
+
      
   <section id="contact">
     <Contact />

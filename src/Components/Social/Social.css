@@ -1,5 +1,5 @@
 .social-wrap {
-  background: #050508;
+  background: transparent;
   min-height: 100vh;
   padding: 80px 10%;
   color: #fff;
@@ -36,7 +36,7 @@
   overflow: hidden;
   background: #0c0c11;
   cursor: pointer;
-border: 1px solid #353333 ;
+  border: 1px solid #353333 ;
   transition: box-shadow 0.4s ease;
 }
 

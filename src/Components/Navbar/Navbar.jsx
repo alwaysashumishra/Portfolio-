@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const scrollToSection = (id) => {
@@ -14,18 +14,42 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      {/* Hamburger Menu */}
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
         <div className={`bar ${menuOpen ? "open" : ""}`}></div>
       </div>
 
+      {/* Nav Links */}
       <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <li><a onClick={() => scrollToSection("home")}>Home</a></li>
-        <li><a onClick={() => scrollToSection("about")}>About</a></li>
-        <li><a onClick={() => scrollToSection("experience")}>Experience</a></li>
-        <li><a onClick={() => scrollToSection("projects")}>Projects</a></li>
-        <li><a onClick={() => scrollToSection("skill")}>Skill</a></li>
+        <li>
+          <a onClick={() => scrollToSection("home")}>Home</a>
+        </li>
+        <li>
+          <a onClick={() => scrollToSection("about")}>About</a>
+        </li>
+        <li>
+          <a onClick={() => scrollToSection("experience")}>Experience</a>
+        </li>
+        <li>
+          <a onClick={() => scrollToSection("projects")}>Projects</a>
+        </li>
+        <li>
+          <a onClick={() => scrollToSection("skill")}>Skill</a>
+        </li>
+        <li>
+          <a onClick={() => scrollToSection("courses")}>Courses</a>
+        </li>
+
+        {/* Theme Button */}
+        <li>
+          <button className="theme-btn" onClick={toggleTheme}>
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+        </li>
+
+        {/* Book Call */}
         <li>
           <a
             className="book-call"

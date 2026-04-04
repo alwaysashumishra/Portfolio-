@@ -1,6 +1,6 @@
 .cinema-hero {
   min-height: 100vh;
-  background: #000;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;

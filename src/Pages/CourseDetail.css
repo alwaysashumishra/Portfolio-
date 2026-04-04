@@ -1,0 +1,178 @@
+/* ===============================
+   COURSE DETAIL PAGE (CD-*)
+   =============================== */
+
+.cd-page {
+  background: transparent;
+  color: #fff;
+  min-height: 100vh;
+  padding: 140px 8% 120px;
+}
+
+/* -------------------------------
+   HERO
+-------------------------------- */
+
+.cd-hero {
+  max-width: 820px;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 50px;
+}
+
+.cd-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 4px;
+  height: 85%;
+  background: linear-gradient(to bottom, #7c6bff, transparent);
+}
+
+.cd-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #aaa;
+}
+
+.cd-hero h1 {
+  font-size: 46px;
+  margin: 12px 0;
+  line-height: 1.2;
+}
+
+.cd-hero p {
+  color: #aaa;
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* -------------------------------
+   PRICE STRIP
+-------------------------------- */
+
+.cd-price-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 26px;
+  margin-bottom: 90px;
+  border-left: 4px solid #7c6bff;
+  background: rgba(255,255,255,0.03);
+}
+
+.cd-price {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* -------------------------------
+   CONTENT WRAPPER
+-------------------------------- */
+
+.cd-content {
+  max-width: 900px;
+}
+
+/* -------------------------------
+   SECTION
+-------------------------------- */
+
+.cd-section {
+  margin-bottom: 100px;
+}
+
+.cd-section h3 {
+  font-size: 24px;
+  margin-bottom: 26px;
+}
+
+/* -------------------------------
+   WHAT YOU WILL LEARN (DOC STYLE)
+-------------------------------- */
+
+.cd-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cd-list-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-left: 3px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.02);
+}
+
+.cd-list-item span {
+  font-weight: bold;
+  color: #7c6bff;
+}
+
+.cd-list-item p {
+  color: #ddd;
+  line-height: 1.5;
+}
+
+/* -------------------------------
+   ROADMAP FIX (inherits Roadmap.css)
+-------------------------------- */
+
+.roadmap-wrapper {
+  margin-top: 60px;
+}
+
+/* -------------------------------
+   DOUBT FIX (inherits DoubtInfo.css)
+-------------------------------- */
+
+.doubt-wrapper {
+  margin-top: 60px;
+}
+
+/* -------------------------------
+   FINAL CTA
+-------------------------------- */
+
+.cd-final-cta {
+  margin-top: 140px;
+  padding: 50px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.cd-final-cta h3 {
+  font-size: 32px;
+}
+
+.cd-final-cta p {
+  color: #aaa;
+  margin: 10px 0 24px;
+}
+
+/* -------------------------------
+   RESPONSIVE
+-------------------------------- */
+
+@media (max-width: 768px) {
+  .cd-page {
+    padding: 120px 6% 100px;
+  }
+
+  .cd-hero h1 {
+    font-size: 34px;
+  }
+
+  .cd-price-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .cd-final-cta {
+    padding: 36px 20px;
+  }
+}

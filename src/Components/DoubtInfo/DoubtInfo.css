@@ -1,0 +1,49 @@
+.doubt-wrapper {
+  margin-top: 100px;
+  max-width: 720px;
+  padding-left: 28px;
+  position: relative;
+}
+
+/* left accent to differentiate from home */
+.doubt-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 3px;
+  height: 90%;
+  background: linear-gradient(to bottom, #7c6bff, transparent);
+}
+
+.doubt-wrapper h3 {
+  font-size: 24px;
+}
+
+.doubt-wrapper p {
+  color: #aaa;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.doubt-wrapper ul {
+  margin-top: 22px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.doubt-wrapper li {
+  margin-bottom: 14px;
+  padding-left: 18px;
+  position: relative;
+  color: #ddd;
+}
+
+/* custom bullet */
+.doubt-wrapper li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #7c6bff;
+  font-size: 18px;
+}

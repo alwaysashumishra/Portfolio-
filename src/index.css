@@ -2,3 +2,41 @@
 html {
   scroll-behavior: smooth;
 }
+/* DARK */
+/* ========== THEME SYSTEM ========== */
+
+/* Dark (Default) */
+body {
+  background: #000;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Light Mode */
+body[data-theme="light"] {
+  background: #f4f4f4;
+  color: #111;
+}
+
+/* Light Navbar */
+body[data-theme="light"] .navbar {
+  background: #fff;
+}
+
+body[data-theme="light"] .nav-links {
+  background: rgba(240, 240, 240, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body[data-theme="light"] .nav-links li a {
+  color: #222;
+}
+
+body[data-theme="light"] .theme-btn {
+  color: #000;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body[data-theme="light"] .bar {
+  background: #111;
+}
