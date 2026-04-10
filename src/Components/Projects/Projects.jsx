@@ -18,7 +18,7 @@ const projects = [
     image: assets.food,
     live: "https://rasoirun.vercel.app",
     source: "https://github.com/alwaysashumishra/Rasoi.Run",
-    tech:  ["React", "CSS", "JavaScript", "UI/UX"],
+    tech: ["React", "CSS", "JavaScript", "UI/UX"],
   },
   {
     title: "Vedix",
@@ -26,10 +26,19 @@ const projects = [
     image: assets.vedix,
     live: "http://cloneofi8.vercel.app",
     source: "https://github.com/alwaysashumishra/Lexi.Ai--Ai-Driven-Conversational-PLatform-",
-    tech:  ["React", "JavaScript", "API", "AI"],
+    tech: ["React", "JavaScript", "API", "AI"],
+  },
+
+  // ✅ NEW PROJECT (Landing Page)
+  {
+    title: "Premium Landing Page",
+    desc: "A modern animated landing page with smooth UI, premium card design, and responsive layout built for high-conversion products.",
+    image: assets.landing,
+    live: "https://your-landing-page-link.vercel.app",
+    source: "https://github.com/your-username/landing-page",
+    tech: ["React", "Framer Motion", "CSS", "UI/UX"],
   },
 ];
-
 const Projects = () => {
   return (
     <section className="projects-section">

@@ -8,7 +8,7 @@ import Experience from "../../Components/Experience/Experience";
 import Contact from "../../Components/Contact/Contact";
 import Footer from "../../Components/Footer/Footer";
 import "./Home.css";
-
+import LandingSection from "../../Components/Landing/LandingSection";
 
 const Home = () => {
   return (
@@ -27,15 +27,18 @@ const Home = () => {
       <section id="projects">
         <Projects />
       </section>
+
+      <section id="landing">
+        <LandingSection />
+      </section>
+
       <section id="experience">
         <Experience />
       </section>
-    
 
-     
-  <section id="contact">
-    <Contact />
-  </section>
+      <section id="contact">
+        <Contact />
+      </section>
       <Footer />
     </>
   );

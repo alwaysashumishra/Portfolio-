@@ -7,6 +7,8 @@
  import edunet from './edunet.png'
  import unstop from './unstop.png'
  import iit from './iit.png'
+ import landing1 from './landing1.png'
+ import landing2 from './landing2.png'
  
  export const assets ={
     github,
@@ -17,6 +19,9 @@
     vedix,
     edunet,
     unstop,
-    iit
+    iit,
+    landing1,
+    landing2,
+   
 
  } 
