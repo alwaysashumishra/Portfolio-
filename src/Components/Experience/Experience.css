@@ -147,3 +147,75 @@
     flex-direction: column;
   }
 }
+
+body[data-theme="light"] .timeline-section {
+  color: #111827;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(244, 244, 244, 0.44)),
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.07), transparent 36%);
+}
+
+body[data-theme="light"] .timeline-heading {
+  color: #111827;
+}
+
+body[data-theme="light"] .timeline::before {
+  background: linear-gradient(
+    to bottom,
+    #2563eb,
+    rgba(37, 99, 235, 0.16)
+  );
+}
+
+body[data-theme="light"] .timeline-dot {
+  background: #2563eb;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.1);
+}
+
+body[data-theme="light"] .timeline-dot.highlight {
+  background: #16a34a;
+  box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.12);
+}
+
+body[data-theme="light"] .timeline-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.08);
+}
+
+body[data-theme="light"] .timeline-card:hover {
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  box-shadow: 0 22px 52px rgba(37, 99, 235, 0.14);
+}
+
+body[data-theme="light"] .timeline-logo {
+  background: #f8fafc;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+body[data-theme="light"] .timeline-content h3 {
+  color: #111827;
+}
+
+body[data-theme="light"] .company {
+  color: #1d4ed8;
+}
+
+body[data-theme="light"] .duration {
+  color: #64748b;
+}
+
+body[data-theme="light"] .desc {
+  color: #374151;
+}
+
+body[data-theme="light"] .timeline-btn {
+  border-color: rgba(37, 99, 235, 0.28);
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.04);
+}
+
+body[data-theme="light"] .timeline-btn:hover {
+  background: #1d4ed8;
+  color: #ffffff;
+}

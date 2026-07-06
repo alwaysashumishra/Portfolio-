@@ -139,3 +139,48 @@
     width: 100%;
   }
 }
+body[data-theme="light"] .navbar {
+  background: rgba(244, 244, 244, 0.78);
+  backdrop-filter: blur(16px);
+}
+
+body[data-theme="light"] .nav-links {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(17, 24, 39, 0.1);
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.1);
+}
+
+body[data-theme="light"] .nav-links li a {
+  color: #111827;
+}
+
+body[data-theme="light"] .nav-links li a:hover {
+  background: rgba(17, 24, 39, 0.06);
+  color: #111827;
+}
+
+body[data-theme="light"] .book-call {
+  background: #111827;
+  color: #ffffff !important;
+  box-shadow: none;
+}
+
+body[data-theme="light"] .book-call:hover {
+  background: #2563eb;
+}
+
+body[data-theme="light"] .theme-btn {
+  background: rgba(17, 24, 39, 0.06);
+  color: #111827;
+  border-color: rgba(17, 24, 39, 0.12);
+}
+
+body[data-theme="light"] .theme-btn:hover {
+  background: rgba(37, 99, 235, 0.1);
+}
+
+@media (max-width: 768px) {
+  body[data-theme="light"] .nav-links {
+    background: rgba(255, 255, 255, 0.94);
+  }
+}

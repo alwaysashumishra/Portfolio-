@@ -21,10 +21,10 @@ const Experience = () => {
             <div className="timeline-content">
               <h3>Campus Ambassador</h3>
               <p className="company">
-                Indian Institute of Technology, Kanpur · Part-time
+                Indian Institute of Technology, Kanpur - Part-time
               </p>
               <span className="duration">
-                Aug 2025 – Nov 2025 · 4 mos · Remote
+                Aug 2025 - Nov 2025 - 4 mos - Remote
               </span>
 
               <p className="desc">
@@ -60,9 +60,9 @@ const Experience = () => {
 
             <div className="timeline-content">
               <h3>Campus Ambassador</h3>
-              <p className="company">Unstop · Part-time</p>
+              <p className="company">Unstop - Part-time</p>
               <span className="duration">
-                Aug 2025 – Oct 2025 · 3 mos · Gautam Buddha Nagar, UP
+                Aug 2025 - Oct 2025 - 3 mos - Gautam Buddha Nagar, UP
               </span>
 
               <p className="desc">
@@ -98,9 +98,9 @@ const Experience = () => {
 
             <div className="timeline-content">
               <h3>Artificial Intelligence Intern</h3>
-              <p className="company">Edunet Foundation · Internship</p>
+              <p className="company">Edunet Foundation - Internship</p>
               <span className="duration">
-                Nov 2024 – Jan 2025 · 3 mos · Remote
+                Nov 2024 - Jan 2025 - 3 mos - Remote
               </span>
 
               <p className="desc">
@@ -134,3 +134,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

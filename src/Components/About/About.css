@@ -1,99 +1,180 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-.about-container{
-    display: flex;
-    padding:2vw 2vw;
-    gap: 100px;
-    justify-content: center;
-    align-items: center;
-    height: 700px;
-    width: 100%;
-    background: transparent;
+
+.about-container {
+  display: flex;
+  padding: 2vw 2vw;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  min-height: 700px;
+  width: 100%;
+  background: transparent;
 }
-.left{
-    color: aliceblue;
-    padding: 20px;
-    width: 40%;
-    height: 100%;
-    background: #0A0A0A;
+
+.left {
+  color: aliceblue;
+  padding: 20px;
+  width: 40%;
+  height: 100%;
+  background: #0a0a0a;
 }
-.left h1{
-  padding: 20px 0px ;
+
+.left h1 {
+  padding: 20px 0;
   margin-bottom: 10px;
   font-weight: 600;
   font-size: 2.5vw;
-  font-family: monument;
+  font-family: monument, Outfit, sans-serif;
 }
-.left p{
-    font-family: Outfit;
-    font-size: 1.5vw;
+
+.left p {
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 1.5vw;
 }
-.right{
-    padding: 100px 30px ;
-    width: 40%;
-    height: 100%;
-    background: #0A0A0A;
-    /* background: rebeccapurple; */
-    display: flex;
-    justify-content: center;
-}
-.profile-card {
-  position: relative;
-  width: 90%;
-  height: 500px;
-  border-radius: 25px;
-  background-image: url(https://assets.leetcode.com/users/Ashutosh12mishra/avatar_1773464365.png);
-  background-position: center;
-  background-size: cover;
+
+.right {
+  padding: 70px 30px;
+  width: 40%;
+  height: 100%;
+  background: #0a0a0a;
   display: flex;
   justify-content: center;
-  transition: all 0.4s ease;
-  border: 2px solid transparent;
-  cursor: pointer;
 }
 
-/* Hover par soft glow */
-.profile-card:hover {
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+.campfire-profile {
+  position: relative;
+  width: min(100%, 430px);
+  min-height: 520px;
+  border-radius: 28px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 76%, rgba(95, 50, 22, 0.38), transparent 38%),
+    linear-gradient(180deg, #050607 0%, #0c0a08 100%);
+  border: 1px solid rgba(255, 194, 113, 0.14);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.46);
+  touch-action: none;
+  isolation: isolate;
 }
 
-/* Click par bright glow */
-.profile-card:active {
-  border: 2px solid #fff;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-  transform: scale(0.98);
+.campfire-profile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 70%, rgba(255, 129, 31, 0.35), transparent 34%);
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  z-index: 1;
+}
+
+.campfire-profile.is-lit::before {
+  opacity: 0.22;
+  animation: fireGlow 1.5s ease-in-out 2 alternate;
+}
+
+.ember-sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.ember-sky span {
+  position: absolute;
+  bottom: 135px;
+  left: var(--ember-left, 50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #ffd36b;
+  opacity: 0;
+  box-shadow: 0 0 16px rgba(255, 179, 48, 0.9);
+}
+
+.ember-sky span:nth-child(1) { --ember-left: 34%; animation-delay: 0.1s; }
+.ember-sky span:nth-child(2) { --ember-left: 45%; animation-delay: 0.35s; }
+.ember-sky span:nth-child(3) { --ember-left: 56%; animation-delay: 0.2s; }
+.ember-sky span:nth-child(4) { --ember-left: 64%; animation-delay: 0.55s; }
+.ember-sky span:nth-child(5) { --ember-left: 50%; animation-delay: 0.72s; }
+
+.campfire-profile.is-lit .ember-sky {
+  opacity: 0;
+  transition: opacity 0.6s ease 1.25s;
+}
+
+.campfire-profile.is-lit .ember-sky span {
+  animation: emberRise 1.8s ease-in infinite;
+}
+
+.profile-reveal-card {
+  position: absolute;
+  inset: 36px 36px 86px;
+  border-radius: 24px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px) rotateX(12deg) translateZ(-80px) scale(0.9);
+  transform-style: preserve-3d;
+  filter: blur(10px) brightness(0.65);
+  transition: inset 0.9s ease 0.95s, opacity 1s ease 0.55s, transform 1s ease 0.55s, filter 1s ease 0.55s, box-shadow 1s ease 0.55s;
+  z-index: 7;
+}
+
+.campfire-profile.is-lit .profile-reveal-card {
+  inset: 28px;
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg) translateZ(90px) scale(1);
+  filter: blur(0) brightness(1);
+  box-shadow: 0 34px 70px rgba(0, 0, 0, 0.42), 0 0 34px rgba(255, 128, 31, 0.26);
+}
+
+.profile-reveal-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-reveal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.64));
+  z-index: 1;
 }
 
 .profile-detail {
   margin: 5px;
   padding: 10px;
-  background: rgba(61, 59, 59, 0.9);
+  background: rgba(30, 28, 27, 0.86);
   width: 90%;
   gap: 10px;
-  height: 17%;
+  min-height: 74px;
   position: absolute;
   bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(3px);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 18px rgba(255, 139, 44, 0.22);
+  z-index: 2;
 }
 
 .circle-img {
-  height: 100%;
-  width: 65px;
+  height: 56px;
+  width: 56px;
+  flex: 0 0 56px;
   border-radius: 50%;
   background-image: url(https://assets.leetcode.com/users/Ashutosh12mishra/avatar_1773464365.png);
   background-position: top;
   background-size: cover;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.68);
+  box-shadow: 0 0 12px rgba(255, 177, 88, 0.52);
 }
 
 .info {
-  height: 100%;
   width: 150px;
   padding: 4px;
   color: aliceblue;
@@ -104,35 +185,295 @@
 }
 
 .info h3 {
-  font-family: Outfit;
-  font-size: 1.1vw;
-  font-weight: 300;
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
 }
 
 .info h4 {
-  font-size: 18px;
+  font-size: 0.9rem;
   font-weight: 300;
+  color: #ffd394;
 }
 
 .profile-detail button {
-  height: 100%;
-  width: 120px;
-  background: #43444a;
+  height: 48px;
+  width: 110px;
+  background: rgba(255, 129, 31, 0.14);
   color: aliceblue;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 183, 97, 0.5);
   transition: all 0.3s ease;
 }
 
-/* Button hover effect */
 .profile-detail button:hover {
-  background: #fff;
-  color: #181f4A;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  background: #ffb35f;
+  color: #18100a;
+  box-shadow: 0 0 16px rgba(255, 170, 74, 0.7);
 }
+
+.torch-stick {
+  position: absolute;
+  top: 260px;
+  right: 18px;
+  width: 36px;
+  height: 210px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: grab;
+  z-index: 8;
+  transform-origin: center bottom;
+  transform-style: preserve-3d;
+  transition: opacity 0.55s ease 0.75s, visibility 0.55s ease 0.75s, filter 0.25s ease;
+}
+
+.campfire-profile.is-lit .torch-stick {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.torch-stick:active,
+.campfire-profile.is-dragging .torch-stick {
+  cursor: grabbing;
+  filter: drop-shadow(0 0 18px rgba(255, 198, 79, 0.9));
+}
+
+.torch-handle {
+  position: absolute;
+  left: 14px;
+  top: 42px;
+  width: 12px;
+  height: 160px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3c2114, #8c4e2a 45%, #251108);
+  box-shadow: inset 3px 0 4px rgba(255, 225, 150, 0.18);
+}
+
+.torch-head {
+  position: absolute;
+  left: 7px;
+  top: 30px;
+  width: 26px;
+  height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(180deg, #2b1710, #6f3921);
+}
+
+.torch-flame {
+  position: absolute;
+  left: 2px;
+  top: 0;
+  width: 34px;
+  height: 48px;
+  border-radius: 50% 50% 42% 42%;
+  background:
+    radial-gradient(circle at 50% 70%, #fff9bd 0 18%, transparent 19%),
+    radial-gradient(circle at 50% 58%, #ffdd55 0 34%, transparent 35%),
+    linear-gradient(180deg, #ffef73, #ff8a1f 55%, #e73916 100%);
+  clip-path: polygon(50% 0, 72% 28%, 84% 54%, 68% 100%, 48% 86%, 30% 100%, 14% 58%, 28% 26%);
+  filter: drop-shadow(0 0 14px rgba(255, 149, 24, 0.92));
+  animation: torchFlicker 0.7s ease-in-out infinite alternate;
+}
+
+.wood-stage {
+  position: absolute;
+  left: 50%;
+  bottom: 42px;
+  width: 300px;
+  height: 235px;
+  transform: translateX(-50%) rotateX(58deg) rotateZ(-2deg);
+  transform-style: preserve-3d;
+  transition: opacity 0.75s ease 1.05s, visibility 0.75s ease 1.05s, filter 0.75s ease 1.05s;
+  z-index: 5;
+}
+
+.ground-plane {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 280px;
+  height: 210px;
+  border-radius: 50%;
+  transform: translateX(-50%) translateZ(-34px);
+  background:
+    radial-gradient(ellipse at center, rgba(79, 61, 45, 0.72), rgba(21, 16, 12, 0.92) 64%, transparent 70%);
+  box-shadow: 0 34px 38px rgba(0, 0, 0, 0.44);
+}
+
+.ash-bed {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 240px;
+  height: 46px;
+  border-radius: 50%;
+  transform: translateX(-50%) translateZ(-6px);
+  background: radial-gradient(ellipse, #34302d, #14100d 72%);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.44);
+}
+
+.log {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  width: 178px;
+  height: 34px;
+  border-radius: 999px;
+  transform-style: preserve-3d;
+  background:
+    linear-gradient(90deg, rgba(255, 218, 150, 0.42), transparent 14% 86%, rgba(30, 13, 4, 0.58)),
+    repeating-linear-gradient(8deg, #5c331e 0 12px, #7a4425 12px 20px, #3a1d11 20px 30px);
+  box-shadow: inset 0 -8px 12px rgba(0, 0, 0, 0.28), 0 8px 14px rgba(0, 0, 0, 0.22);
+}
+
+.log::before,
+.log::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #d39a58 0 26%, #6a3a20 28% 54%, #2a140a 56%);
+}
+
+.log::before { left: 2px; }
+.log::after { right: 2px; }
+.log-one { transform: translateX(-50%) translateZ(34px) rotateZ(18deg) rotateX(-6deg); }
+.log-two { transform: translateX(-50%) translateZ(18px) rotateZ(-17deg) rotateX(6deg); }
+.log-three { bottom: 72px; width: 186px; transform: translateX(-50%) translateZ(56px) rotateZ(58deg) rotateX(-16deg); }
+.log-four { bottom: 70px; width: 186px; transform: translateX(-50%) translateZ(50px) rotateZ(-58deg) rotateX(14deg); }
+
+.fire-aura,
+.flame {
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fire-aura {
+  bottom: 42px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(255, 123, 23, 0.58), transparent 68%);
+  filter: blur(10px);
+}
+
+.flame {
+  bottom: 54px;
+  border-radius: 50% 50% 42% 42%;
+  transform-origin: center bottom;
+  transform-style: preserve-3d;
+  clip-path: polygon(50% 0, 76% 30%, 92% 62%, 70% 100%, 50% 84%, 30% 100%, 8% 62%, 24% 30%);
+}
+
+.flame-one {
+  width: 112px;
+  height: 178px;
+  margin-left: -56px;
+  background: linear-gradient(180deg, #fff3a4 0%, #ffbc21 34%, #ff5b16 72%, rgba(153, 20, 8, 0.88));
+}
+
+.flame-two {
+  width: 82px;
+  height: 138px;
+  margin-left: -38px;
+  background: linear-gradient(180deg, #ffffff 0%, #ffdf5d 35%, #ff7b1c 74%);
+}
+
+.flame-three {
+  width: 58px;
+  height: 104px;
+  margin-left: -14px;
+  background: linear-gradient(180deg, #fff8c9, #ffb11f 52%, #ff4e17);
+}
+
+.flame-four {
+  width: 96px;
+  height: 148px;
+  margin-left: -48px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), #ffcf44 38%, rgba(255, 80, 18, 0.86));
+}
+
+.campfire-profile.is-lit .wood-stage {
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(10px);
+  animation: heatShake 1.8s ease-in-out infinite;
+}
+
+.campfire-profile.is-lit .fire-aura,
+.campfire-profile.is-lit .flame {
+  opacity: 1;
+}
+
+.campfire-profile.is-lit .fire-aura { animation: auraPulse 1.15s ease-in-out infinite alternate; }
+.campfire-profile.is-lit .flame-one { animation: flameDance 0.82s ease-in-out infinite alternate; }
+.campfire-profile.is-lit .flame-two { animation: flameDance 0.64s ease-in-out infinite alternate-reverse; }
+.campfire-profile.is-lit .flame-three { animation: flameDance 0.52s ease-in-out infinite alternate; }
+.campfire-profile.is-lit .flame-four { animation: flameCrossDance 0.74s ease-in-out infinite alternate-reverse; }
+
+.ignite-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 88%;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 170, 74, 0.12);
+  border: 1px solid rgba(255, 183, 97, 0.2);
+  color: rgba(255, 236, 204, 0.82);
+  font-family: Outfit, system-ui, sans-serif;
+  font-size: 0.82rem;
+  z-index: 9;
+}
+
+@keyframes torchFlicker {
+  from { transform: scaleY(0.96) skewX(-3deg); }
+  to { transform: scaleY(1.08) skewX(4deg); }
+}
+
+@keyframes flameDance {
+  from { transform: translateX(-4px) translateZ(64px) rotateX(-58deg) scaleY(0.94) rotateZ(-2deg); filter: blur(0); }
+  to { transform: translateX(5px) translateZ(82px) rotateX(-58deg) scaleY(1.08) rotateZ(3deg); filter: blur(0.4px); }
+}
+
+@keyframes flameCrossDance {
+  from { transform: translateX(-6px) translateZ(70px) rotateX(-58deg) rotateY(72deg) scaleY(0.9); }
+  to { transform: translateX(7px) translateZ(88px) rotateX(-58deg) rotateY(72deg) scaleY(1.08); }
+}
+
+@keyframes auraPulse {
+  from { transform: translateX(-50%) scale(0.92); opacity: 0.62; }
+  to { transform: translateX(-50%) scale(1.08); opacity: 0.95; }
+}
+
+@keyframes fireGlow {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.28); }
+}
+
+@keyframes heatShake {
+  0%, 100% { transform: translateX(-50%) rotateX(58deg) rotateZ(-2deg) translateY(0); }
+  50% { transform: translateX(-50%) rotateX(58deg) rotateZ(1deg) translateY(-3px); }
+}
+
+@keyframes emberRise {
+  0% { transform: translateY(0) scale(0.7); opacity: 0; }
+  18% { opacity: 1; }
+  100% { transform: translateY(-260px) translateX(28px) scale(0.2); opacity: 0; }
+}
+
 @media (max-width: 1024px) {
   .about-container {
-    height: auto;
+    min-height: auto;
     padding: 60px 4vw;
   }
 
@@ -140,26 +481,10 @@
     padding: 40px 20px;
   }
 
-  .profile-card {
+  .campfire-profile {
     width: 100%;
-    height: 420px;
+    min-height: 500px;
     border-radius: 22px;
-    background-position: center;
-  }
-
-  .profile-detail {
-    height: auto;
-    padding: 12px 14px;
-    bottom: 16px;
-    flex-wrap: wrap;
-  }
-
-  .info h3 {
-    font-size: 14px;
-  }
-
-  .info h4 {
-    font-size: 13px;
   }
 }
 
@@ -167,7 +492,7 @@
   .about-container {
     flex-direction: column;
     gap: 50px;
-    height: auto;
+    min-height: auto;
     padding: 60px 5vw;
   }
 
@@ -188,62 +513,154 @@
     text-align: center;
   }
 
-  .profile-card {
-    width: 100%;
-    height: auto;              /* 🔥 KEY FIX */
-    aspect-ratio: 3 / 4;       /* maintains shape */
-    min-height: 360px;
-    border-radius: 20px;
+  .campfire-profile {
+    min-height: 520px;
+  }
+
+  .profile-reveal-card {
+    inset: 34px 24px 96px;
   }
 
   .profile-detail {
-    position: relative;        /* 🔥 overlay problem solved */
-    bottom: 0;
-    margin-top: auto;
-    width: 100%;
-    height: auto;
-    padding: 14px;
-    border-radius: 16px;
+    width: 92%;
+    min-height: auto;
+    padding: 12px;
     flex-wrap: wrap;
   }
 
   .circle-img {
     width: 52px;
     height: 52px;
+    flex-basis: 52px;
   }
 
   .info {
     width: auto;
   }
 
-  .info h3 {
-    font-size: 14px;
-  }
-
-  .info h4 {
-    font-size: 13px;
-  }
-
   .profile-detail button {
     width: 100%;
     height: 42px;
-    margin-top: 10px;
+    margin-top: 6px;
     font-size: 14px;
+  }
+
+  .torch-stick {
+    right: 26px;
   }
 }
 
-
 @media (max-width: 480px) {
-  .profile-card {
-    aspect-ratio: 4 / 5;
-    min-height: 340px;
+  .campfire-profile {
+    min-height: 500px;
   }
 
   .left p {
     font-size: 4.5vw;
   }
 
+  .wood-stage {
+    width: 260px;
+    transform: translateX(-50%) rotateX(58deg) rotateZ(-2deg) scale(0.88);
+  }
+
+  .profile-reveal-card {
+    inset: 28px 18px 104px;
+  }
+
   .info h3 {
     font-size: 13px;
   }
 }
+
+
+
+@media (max-width: 768px) {
+  .campfire-profile.is-lit .profile-reveal-card {
+    inset: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .campfire-profile.is-lit .profile-reveal-card {
+    inset: 18px;
+  }
+}
+
+
+body[data-theme="light"] .about-container {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(244, 244, 244, 0.28)),
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.06), transparent 36%);
+}
+
+body[data-theme="light"] .left,
+body[data-theme="light"] .right {
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(17, 24, 39, 0.04);
+  box-shadow: 0 16px 38px rgba(17, 24, 39, 0.05);
+}
+
+body[data-theme="light"] .left {
+  color: #111827;
+}
+
+body[data-theme="light"] .left h1 {
+  color: #111827;
+  text-shadow: none;
+}
+
+body[data-theme="light"] .left p {
+  color: #374151;
+  background-image: linear-gradient(90deg, #111827, #be185d, #374151);
+}
+
+body[data-theme="light"] .left,
+body[data-theme="light"] .right {
+  backdrop-filter: blur(10px);
+}
+
+body[data-theme="light"] .campfire-profile {
+  background:
+    radial-gradient(circle at 50% 76%, rgba(255, 170, 74, 0.22), transparent 38%),
+    linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  border-color: rgba(146, 64, 14, 0.16);
+  box-shadow: 0 24px 54px rgba(17, 24, 39, 0.16);
+}
+
+body[data-theme="light"] .profile-reveal-card {
+  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.18);
+}
+
+body[data-theme="light"] .profile-detail {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(146, 64, 14, 0.22);
+  box-shadow: 0 16px 30px rgba(17, 24, 39, 0.16);
+}
+
+body[data-theme="light"] .info {
+  color: #111827;
+}
+
+body[data-theme="light"] .info h4 {
+  color: #92400e;
+}
+
+body[data-theme="light"] .profile-detail button {
+  background: #111827;
+  color: #ffffff;
+  border-color: transparent;
+}
+
+body[data-theme="light"] .profile-detail button:hover {
+  background: #b45309;
+  color: #ffffff;
+}
+
+body[data-theme="light"] .ignite-hint {
+  background: rgba(255, 255, 255, 0.86);
+  border-color: rgba(146, 64, 14, 0.18);
+  color: #92400e;
+  box-shadow: 0 12px 24px rgba(17, 24, 39, 0.08);
+}
+

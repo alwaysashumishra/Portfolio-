@@ -3,7 +3,6 @@ import "./Contact.css";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
-
 const Contact = () => {
   const formRef = useRef();
   const [status, setStatus] = useState("");
@@ -15,9 +14,9 @@ const Contact = () => {
     emailjs
       .sendForm(
         import.meta.env.VITE_SERVICE_ID,
-      import.meta.env.VITE_TEMPLATE_ID,
-      formRef.current,
-      import.meta.env.VITE_PUBLIC_KEY
+        import.meta.env.VITE_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_PUBLIC_KEY
       )
       .then(
         () => {
@@ -31,17 +30,16 @@ const Contact = () => {
   };
 
   return (
-  <section className="contact-section">
+    <section className="contact-section">
       <motion.div
         className="contact-header"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <h2>Let’s work together</h2>
+        <h2>Let's work together</h2>
         <p>
-          Have an opportunity, project, or idea?  
-          Drop a message and I’ll get back to you.
+          Have an opportunity, project, or idea? Drop a message and I&apos;ll get back to you.
         </p>
       </motion.div>
 
@@ -83,10 +81,10 @@ const Contact = () => {
         </button>
 
         {status === "success" && (
-          <p className="success-msg">Message sent successfully ✅</p>
+          <p className="success-msg">Message sent successfully.</p>
         )}
         {status === "error" && (
-          <p className="error-msg">Something went wrong ❌</p>
+          <p className="error-msg">Something went wrong.</p>
         )}
       </motion.form>
     </section>

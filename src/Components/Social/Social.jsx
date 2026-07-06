@@ -1,7 +1,6 @@
 import React from "react";
 import "./Social.css";
 import { motion } from "framer-motion";
-import { assets } from "../../assets/assets";
 
 const socials = [
   {
@@ -24,15 +23,15 @@ const socials = [
 const Social = () => {
   return (
     <section className="social-wrap">
-     <motion.h2 className="connect-heading">
-  Let’s connect
-  <span className="connect-line" />
-</motion.h2>
+      <motion.h2 className="connect-heading">
+        Let&apos;s connect
+        <span className="connect-line" />
+      </motion.h2>
 
       <div className="social-panels">
         {socials.map((item, i) => (
           <motion.div
-            key={i}
+            key={item.name}
             className="social-panel"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +42,7 @@ const Social = () => {
             <img src={item.img} alt={item.name} />
             <div className="panel-overlay">
               <span>{item.name}</span>
-              <small>View Profile →</small>
+              <small>View Profile -&gt;</small>
             </div>
           </motion.div>
         ))}

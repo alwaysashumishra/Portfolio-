@@ -130,3 +130,46 @@
     font-size: 0.95rem;
   }
 }
+
+body[data-theme="light"] .cinema-hero {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 244, 244, 0.5)),
+    radial-gradient(circle at 12% 34%, rgba(99, 102, 241, 0.12), transparent 34%),
+    radial-gradient(circle at 88% 48%, rgba(168, 85, 247, 0.12), transparent 32%);
+}
+
+body[data-theme="light"] .glow {
+  opacity: 0.18;
+  filter: blur(150px);
+}
+
+body[data-theme="light"] .hero-tag {
+  color: #64748b;
+}
+
+body[data-theme="light"] .hero-title {
+  color: #111827;
+}
+
+body[data-theme="light"] .hero-title span {
+  background: linear-gradient(90deg, #7c3aed, #db2777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body[data-theme="light"] .hero-desc {
+  color: #475569;
+}
+
+body[data-theme="light"] .hero-desc.muted {
+  color: #64748b;
+}
+
+body[data-theme="light"] .hero-btn {
+  background: linear-gradient(90deg, #111827, #2563eb);
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.24);
+}
+
+body[data-theme="light"] .hero-quote {
+  color: #64748b;
+}
