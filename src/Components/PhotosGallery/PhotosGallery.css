@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Editorial Photos Gallery Section — 3D Orbital Carousel Showcase
+   ========================================================================== */
+
+.editorial-gallery-section {
+  padding: 100px 0 90px;
+  background-color: var(--bg-canvas);
+  border-top: 1px solid var(--border-hairline);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.35s ease;
+}
+
+.editorial-gallery-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 36px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Header Row
+   -------------------------------------------------------------------------- */
+.gallery-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.section-editorial-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  margin-bottom: 12px;
+}
+
+.gallery-editorial-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.highlight-red {
+  color: var(--accent-red);
+}
+
+.gallery-insta-link-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  text-align: right;
+  max-width: 480px;
+}
+
+.gallery-editorial-sub {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Instagram Pill Button */
+.gallery-insta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-insta-btn:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(226, 42, 42, 0.25);
+}
+
+.gallery-insta-btn svg:first-child {
+  color: #e1306c;
+  transition: transform 0.3s ease;
+}
+
+.gallery-insta-btn:hover svg:first-child {
+  transform: scale(1.15) rotate(-6deg);
+}
+
+/* --------------------------------------------------------------------------
+   3D Orbital Stage Wrapper
+   -------------------------------------------------------------------------- */
+.gallery-orbital-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+}
+
+/* Orbital Artwork: Paint Splatters, Elliptical Trajectories, Ambient Glow */
+.gallery-orbital-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 15px 35px rgba(226, 42, 42, 0.08));
+}
+
+/* --------------------------------------------------------------------------
+   Navigation Hotspots (Over Left Amber & Right Crimson Glowing Pods)
+   -------------------------------------------------------------------------- */
+.gallery-nav-hotspot {
+  position: absolute;
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  outline: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-nav-hotspot.prev {
+  left: 7.8%;
+  transform: translate(-50%, -50%);
+}
+
+.gallery-nav-hotspot.next {
+  right: 9.8%;
+  transform: translate(50%, -50%);
+}
+
+.gallery-nav-hotspot.prev:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.gallery-nav-hotspot.next:hover {
+  transform: translate(50%, -50%) scale(1.15);
+}
+
+.gallery-nav-hotspot:active {
+  transform: scale(0.95);
+}
+
+/* --------------------------------------------------------------------------
+   3D Carousel Stage Box
+   -------------------------------------------------------------------------- */
+.carousel-stage-box {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 520px;
+  overflow: visible;
+  background: transparent;
+  border: none;
+}
+
+/* --------------------------------------------------------------------------
+   Dark Mode Customizations
+   -------------------------------------------------------------------------- */
+body[data-theme="dark"] .gallery-orbital-art {
+  filter: drop-shadow(0 15px 45px rgba(255, 60, 40, 0.18));
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .editorial-gallery-section {
+    padding: 70px 0 50px;
+  }
+
+  .editorial-gallery-container {
+    padding: 0 20px;
+  }
+
+  .gallery-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+
+  .gallery-insta-link-wrap {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .gallery-orbital-stage {
+    min-height: 460px;
+  }
+
+  .carousel-stage-box {
+    height: 460px;
+  }
+
+  .gallery-nav-hotspot {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-orbital-stage {
+    min-height: 420px;
+  }
+
+  .carousel-stage-box {
+    height: 420px;
+  }
+
+  .gallery-nav-hotspot {
+    width: 38px;
+    height: 38px;
+  }
+}

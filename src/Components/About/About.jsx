@@ -1,143 +1,174 @@
-import React, { useRef, useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Code, Send, Terminal } from "lucide-react";
 import "./About.css";
 
-const PROFILE_IMAGE = "https://assets.leetcode.com/users/Ashutosh12mishra/avatar_1773464365.png";
+const PROFILE_IMAGE = "/photos/ashutosh_1.png";
 
 const About = () => {
-  const woodRef = useRef(null);
-  const [isLit, setIsLit] = useState(false);
-  const [torchPosition, setTorchPosition] = useState({ x: 0, y: 0 });
-  const [isDraggingTorch, setIsDraggingTorch] = useState(false);
-
-  const checkIgnition = (clientX, clientY) => {
-    const woodBox = woodRef.current?.getBoundingClientRect();
-
-    if (!woodBox) {
-      return;
-    }
-
-    const touchedWood =
-      clientX >= woodBox.left &&
-      clientX <= woodBox.right &&
-      clientY >= woodBox.top &&
-      clientY <= woodBox.bottom;
-
-    if (touchedWood) {
-      setIsLit(true);
-      setIsDraggingTorch(false);
-      setTorchPosition({ x: 0, y: 0 });
-    }
+  const scrollToContact = () => {
+    const el = document.getElementById("contact");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
-
-  const handleTorchMove = (event) => {
-    if (!isDraggingTorch || isLit) {
-      return;
-    }
-
-    const containerBox = event.currentTarget.getBoundingClientRect();
-    const nextX = event.clientX - containerBox.right + 70;
-    const nextY = event.clientY - containerBox.top - 270;
-
-    setTorchPosition({ x: nextX, y: nextY });
-    checkIgnition(event.clientX, event.clientY);
-  };
-
-  const stopTorchDrag = (event) => {
-    if (!isDraggingTorch || isLit) {
-      return;
-    }
-
-    checkIgnition(event.clientX, event.clientY);
-    setIsDraggingTorch(false);
-    setTorchPosition({ x: 0, y: 0 });
-  };
-
-  const igniteWithClick = () => setIsLit(true);
 
   return (
-    <div className="about-container">
-      <div className="left">
-        <h1>ABOUT ME</h1>
-        <p className="text-lg leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-white via-pink-400 to-purple-200">
-          Hi, I&apos;m Ashutosh Mishra, a passionate Frontend Developer currently pursuing B.Tech in Computer Science (AI & ML) from Galgotias University.
-          <br />
-          <br />
-          I build responsive, user-friendly web applications using React.js, Next.js, HTML, CSS, and JavaScript. My key projects, Lexi.AI and a Food Delivery Web App, showcase my creativity and technical precision.
-          <br />
-          <br />
-          I love crafting intuitive digital experiences and integrating APIs to make the web smarter and more engaging. As an Unstop Campus Ambassador, I also promote innovation and real-world learning among peers.
-        </p>
-      </div>
+    <section className="editorial-about-section" id="about">
+      <div className="editorial-about-container">
+        {/* Section Tag */}
+        <div className="section-editorial-badge">[ 01 ] • ABOUT ME</div>
 
-      <div className="right">
-        <div
-          className={`campfire-profile ${isLit ? "is-lit" : ""} ${isDraggingTorch ? "is-dragging" : ""}`}
-          onPointerMove={handleTorchMove}
-          onPointerUp={stopTorchDrag}
-          onPointerCancel={stopTorchDrag}
-        >
-          <div className="ember-sky" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
+        <div className="about-grid">
+          {/* Left Column: Original Bio Content */}
+          <div className="about-narrative-col">
+            <h2 className="about-heading">
+              About <span className="serif-italic highlight-red">Me</span>
+            </h2>
 
-          <div className="profile-reveal-card">
-            <img src={PROFILE_IMAGE} alt="Ashutosh Mishra profile" />
-            <div className="profile-detail reveal-detail">
-              <div className="circle-img"></div>
-              <div className="info">
-                <h3>@alwayashumishra</h3>
-                <h4>Online</h4>
+            <p className="about-lead">
+              Hi, I&apos;m <strong>Ashutosh Mishra</strong>, a passionate Frontend Developer
+              currently pursuing B.Tech in Computer Science (AI & ML) from Galgotias University.
+            </p>
+
+            <p className="about-body">
+              I build responsive, user-friendly web applications using React.js, Next.js, HTML, CSS,
+              and JavaScript. My key projects, Lexi.AI and a Food Delivery Web App, showcase my
+              creativity and technical precision.
+            </p>
+
+            <p className="about-body">
+              I love crafting intuitive digital experiences and integrating APIs to make the web
+              smarter and more engaging. As an Unstop Campus Ambassador, I also promote innovation
+              and real-world learning among peers.
+            </p>
+
+            {/* Quick Metrics */}
+            <div className="about-stats-grid">
+              <div className="stat-card">
+                <span className="stat-number">B.Tech</span>
+                <span className="stat-label">CS (AI & ML) • Galgotias Univ</span>
               </div>
-              <button type="button">Contact Me</button>
+              <div className="stat-card">
+                <span className="stat-number">400+</span>
+                <span className="stat-label">LeetCode Problems Solved</span>
+              </div>
+              <div className="stat-card">
+                <span className="stat-number">Unstop</span>
+                <span className="stat-label">Campus Ambassador</span>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="about-actions-row">
+              <button
+                type="button"
+                className="editorial-primary-btn"
+                onClick={scrollToContact}
+              >
+                Contact Me <ArrowUpRight size={18} />
+              </button>
+              <a
+                href="https://github.com/alwaysashumishra"
+                target="_blank"
+                rel="noreferrer"
+                className="editorial-outline-btn"
+              >
+                View GitHub
+              </a>
             </div>
           </div>
 
-          <button
-            type="button"
-            className="torch-stick"
-            style={{ transform: `translate(${torchPosition.x}px, ${torchPosition.y}px) rotate(-28deg)` }}
-            onPointerDown={(event) => {
-              if (isLit) {
-                return;
-              }
+          {/* Right Column: Clean Profile Card */}
+          <div className="about-visual-col">
+            <div className="editorial-profile-frame">
+              {/* Concentric Circular Badge Assembly */}
+              <div className="profile-badge-cluster">
+                {/* Rotating Circular Track & Text */}
+                <svg className="rotating-text-svg" viewBox="0 0 260 260" aria-hidden="true">
+                  {/* Inner outline circle (just outside photo) */}
+                  <circle
+                    cx="130"
+                    cy="130"
+                    r="88"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    className="badge-track-line inner"
+                  />
 
-              event.currentTarget.setPointerCapture(event.pointerId);
-              setIsDraggingTorch(true);
-            }}
-            onClick={igniteWithClick}
-            aria-label="Touch the burning torch to the dry wood"
-          >
-            <span className="torch-flame" />
-            <span className="torch-head" />
-            <span className="torch-handle" />
-          </button>
+                  {/* Outer outline circle */}
+                  <circle
+                    cx="130"
+                    cy="130"
+                    r="118"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    className="badge-track-line outer"
+                  />
 
-          <div className="wood-stage" ref={woodRef} aria-hidden="true">
-            <div className="ground-plane" />
-            <div className="fire-aura" />
-            <div className="flame flame-one" />
-            <div className="flame flame-two" />
-            <div className="flame flame-three" />
-            <div className="flame flame-four" />
-            <div className="log log-one" />
-            <div className="log log-two" />
-            <div className="log log-three" />
-            <div className="log log-four" />
-            <div className="ash-bed" />
+                  {/* Circular Path centered between inner and outer outlines (radius 103) */}
+                  <path
+                    id="circlePath"
+                    d="M 130, 130 m -103, 0 a 103,103 0 1,1 206,0 a 103,103 0 1,1 -206,0"
+                    fill="none"
+                  />
+                  <text
+                    fill="currentColor"
+                    fontSize="9.5"
+                    fontWeight="700"
+                    letterSpacing="2.8"
+                    className="badge-rotating-text"
+                  >
+                    <textPath href="#circlePath" startOffset="0%">
+                      • FRONTEND DEVELOPER • UI ENGINEER • ASHUTOSH MISHRA •
+                    </textPath>
+                  </text>
+                </svg>
+
+                {/* Concentric Center Portrait */}
+                <div className="portrait-circle-wrap">
+                  <img
+                    src={PROFILE_IMAGE}
+                    alt="Ashutosh Mishra"
+                    className="portrait-image"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/photos/ashutosh_1.png";
+                    }}
+                  />
+                  <div className="portrait-inner-shadow" />
+                </div>
+              </div>
+
+              {/* Status Badge */}
+              <div className="status-pill-badge">
+                <span className="pulsing-green-dot" />
+                <span className="status-text">Online • Available for Opportunities</span>
+              </div>
+
+              {/* Profile Details from old website */}
+              <div className="profile-meta-card">
+                <div className="meta-left">
+                  <span className="meta-handle">@alwaysashumishra</span>
+                  <span className="meta-sub">Galgotias University</span>
+                </div>
+                <div className="meta-right">
+                  <button
+                    type="button"
+                    className="quick-contact-btn"
+                    onClick={scrollToContact}
+                  >
+                    Contact Me
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-
-          {!isLit && <p className="ignite-hint">Drag the torch to the dry wood</p>}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default About;
-
-
-

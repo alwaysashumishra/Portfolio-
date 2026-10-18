@@ -4,43 +4,28 @@ import About from "../../Components/About/About";
 import Skill from "../../Components/Skill/Skill";
 import Social from "../../Components/Social/Social";
 import Projects from "../../Components/Projects/Projects";
-import Experience from "../../Components/Experience/Experience";
 import Contact from "../../Components/Contact/Contact";
 import Footer from "../../Components/Footer/Footer";
-import "./Home.css";
 import LandingSection from "../../Components/Landing/LandingSection";
+import PhotosGallery from "../../Components/PhotosGallery/PhotosGallery";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <>
+    <main className="home-main">
       <section id="home">
         <Header />
       </section>
 
-      <section id="about">
-        <About />
-      </section>
-      <section id="skill">
-        <Skill />
-      </section>
+      <About />
+      <Projects />
+      <Skill />
+      <LandingSection />
+      <PhotosGallery />
       <Social />
-      <section id="projects">
-        <Projects />
-      </section>
-
-      <section id="landing">
-        <LandingSection />
-      </section>
-
-      <section id="experience">
-        <Experience />
-      </section>
-
-      <section id="contact">
-        <Contact />
-      </section>
+      <Contact />
       <Footer />
-    </>
+    </main>
   );
 };
 

@@ -1,0 +1,142 @@
+/* 3D Circular Carousel Styles */
+.circular-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.circular-carousel-wrapper.is-dragging {
+  cursor: grabbing;
+}
+
+/* 3D Cylindrical Ring */
+.circular-carousel-ring {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Individual Carousel Item Card */
+.circular-carousel-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: calc(var(--card-height, 220px) / -2);
+  margin-left: calc(var(--card-width, 220px) / -2);
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
+}
+
+.carousel-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.circular-carousel-item:hover .carousel-card-inner {
+  border-color: var(--accent-red);
+  transform: scale(1.04);
+}
+
+.carousel-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Depth Shading Overlay */
+.carousel-card-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* Captions */
+.carousel-card-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.caption-title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.caption-subtitle {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Vignette Gradients on Left and Right */
+.carousel-vignette {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  max-width: 140px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.carousel-vignette.left {
+  left: 0;
+}
+
+.carousel-vignette.right {
+  right: 0;
+}
+
+/* Intro Rise Animation */
+.intro-rise .circular-carousel-item {
+  transform-origin: center bottom;
+  animation: introRise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes introRise {
+  from {
+    transform: translateY(60px) scale(0.85);
+    opacity: 0;
+  }
+}

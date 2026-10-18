@@ -9,6 +9,7 @@
  import iit from './iit.png'
  import landing1 from './landing1.png'
  import landing2 from './landing2.png'
+ import heroPainting from './hero_painting.jpg'
  
  export const assets ={
     github,
@@ -22,6 +23,5 @@
     iit,
     landing1,
     landing2,
-   
-
+    heroPainting,
  } 
