@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Sun, Moon } from "lucide-react";
 import "./Navbar.css";
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -10,7 +11,7 @@ const Navbar = ({ theme, toggleTheme }) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      const sections = ["home", "about", "projects", "skill", "landing", "gallery", "social", "contact"];
+      const sections = ["home", "about", "projects", "internship", "skill", "landing", "gallery", "social", "contact"];
       const scrollPos = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -43,6 +44,7 @@ const Navbar = ({ theme, toggleTheme }) => {
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
     { id: "projects", label: "Projects" },
+    { id: "internship", label: "Internship" },
     { id: "skill", label: "Skills" },
     { id: "gallery", label: "Gallery" },
     { id: "contact", label: "Contact" },
@@ -132,7 +134,11 @@ const Navbar = ({ theme, toggleTheme }) => {
                 aria-label="Toggle theme mode"
                 title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               >
-                {theme === "dark" ? "☀" : "☾"}
+                {theme === "dark" ? (
+                  <Sun size={17} className="theme-toggle-icon sun-icon" />
+                ) : (
+                  <Moon size={17} className="theme-toggle-icon moon-icon" />
+                )}
               </button>
             </li>
           </ul>
@@ -174,13 +180,23 @@ const Navbar = ({ theme, toggleTheme }) => {
             </button>
           </li>
           <li className="mobile-theme-row">
-            <span>Theme Mode</span>
             <button
               type="button"
-              className="editorial-theme-btn"
+              className="mobile-theme-toggle-btn"
               onClick={toggleTheme}
+              aria-label="Toggle theme mode"
             >
-              {theme === "dark" ? "☀ Light" : "☾ Dark"}
+              {theme === "dark" ? (
+                <>
+                  <Sun size={18} className="sun-icon" />
+                  <span>Switch to Light</span>
+                </>
+              ) : (
+                <>
+                  <Moon size={18} className="moon-icon" />
+                  <span>Switch to Dark</span>
+                </>
+              )}
             </button>
           </li>
         </ul>

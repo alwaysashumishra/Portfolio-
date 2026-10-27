@@ -4,6 +4,7 @@ import About from "../../Components/About/About";
 import Skill from "../../Components/Skill/Skill";
 import Social from "../../Components/Social/Social";
 import Projects from "../../Components/Projects/Projects";
+import Internship from "../../Components/Internship/Internship";
 import Contact from "../../Components/Contact/Contact";
 import Footer from "../../Components/Footer/Footer";
 import LandingSection from "../../Components/Landing/LandingSection";
@@ -19,6 +20,7 @@ const Home = () => {
 
       <About />
       <Projects />
+      <Internship />
       <Skill />
       <LandingSection />
       <PhotosGallery />
